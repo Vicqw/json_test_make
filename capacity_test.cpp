@@ -10,7 +10,7 @@ using json=nlohmann::json;
 #define PREFIX     "https://"
 #define CAPACITY_URL "/ISAPI/Intelligent/imagesComparision/face/capabilities?format=json"
 #define	DEVICE_URL	"/ISAPI/Intelligent/imagesComparision/face"
-#define TIMEOUT     15000   //15�?
+#define TIMEOUT     15000   //15ç§?
 
 std::string username="admin";
 std::string password="sys12345";
@@ -161,14 +161,14 @@ int CAPACITY_PARSE_OBJ_TOSTRING(const json &element,json &normal_format,json &fa
 
 int CAPACITY_PARSE_OBJ(const json &element,json &normal_format,json &false_format)
 {
-    //处理min，max
+    //å¤„ç†minï¼Œmax
     do{
         int ret=CAPACITY_PARSE_OBJ_JUDGE(element);
         if(CAPACITY_PARSE_MAKE_STRING == ret)return CAPACITY_PARSE_OBJ_TOSTRING(element,normal_format,false_format);
         else if(CAPACITY_PARSE_MAKE_INT == ret )return CAPACITY_PARSE_OBJ_TONUMBER(element,normal_format,false_format);
         else break;
     }while(0);
-    //非min，max对象
+    //éžminï¼Œmaxå¯¹è±¡
     for(auto it=element.begin();it!=element.end();it++)
     {
         if(CAPACITY_PARSE_SUCCESS != CAPACITY_PARSE_VALUE(it.value(),normal_format[it.key()],false_format[it.key()]))return CAPACITY_PARSE_ERROR;
@@ -275,16 +275,11 @@ void CAPACITY_JSON_SEND()
    
 }
 
-class node
-{
-static int a;
-};
 int main()
 {
 	json format;
- std::cout<<sizeof(class node)<<std::endl;
-	//if(!CAPACITY_FORAMT_GET(format))return 0;
-  //CAPACITY_FORAMT_PARSE(format);
-	//CAPACITY_JSON_SEND();
+	if(!CAPACITY_FORAMT_GET(format))return 0;
+        CAPACITY_FORAMT_PARSE(format);
+	CAPACITY_JSON_SEND();
     return 0;
 }
