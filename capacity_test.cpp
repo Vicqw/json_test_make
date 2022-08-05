@@ -8,13 +8,13 @@
 using json=nlohmann::json;
 #define CAPACITY_FORMAT_FILE "capacity_format.json"
 #define PREFIX     "https://"
-#define CAPACITY_URL "/ISAPI/Intelligent/imagesComparision/face/capabilities?format=json"
-#define	DEVICE_URL	"/ISAPI/Intelligent/imagesComparision/face"
+#define CAPACITY_URL ""
+#define	DEVICE_URL	""
 #define TIMEOUT     15000   //15ç§?
 
 std::string username="admin";
-std::string password="sys12345";
-std::string IP="10.42.101.111";
+std::string password="";
+std::string IP="";
 std::string PORT="443";
 std::vector<json>test_json;
 
